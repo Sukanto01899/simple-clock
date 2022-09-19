@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Clock</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            font-family: Verdana, sans-serif;
+        }
+        body{
+            background-color: #05083C;
+        }
+        .container{
+            width: 30%;
+            margin: 10% auto;
+            background-color: #05083C;
+            padding: 30px;
+            position: relative;
+            border-radius: 10px;
+        }
+        .container:before {
+            content: "";
+            position: absolute;
+            background-image: linear-gradient(90deg, red, blue, yellow);
+            top: -4px;
+            left: -4px;
+            background-size: 400%;
+            z-index: -1;
+            border-radius: 10px;
+            width: calc(100% + 8px);
+            height: calc(100% + 8px);
+            filter: blur(40px);
+           
+        }
+   
+        .formate{
+            position: absolute;
+            color: white;
+            right: 10px;
+            top: 5px;
+            font-size: 20px;
+            padding: 5px;
+            cursor: pointer;
+        }
+        .time{
+            font-size: 80px;
+            text-align: center;
+            letter-spacing: 5px;
+            font-weight: 800;
+            position: relative;
+            background: linear-gradient(to right, red, yellow);
+	        -webkit-background-clip: text;
+	       -webkit-text-fill-color: transparent
+        }
+
+        #session{
+            position: absolute;
+            top: 20px;
+            right: 15px;
+            background: linear-gradient(to right, red, yellow);
+	        -webkit-background-clip: text;
+	       -webkit-text-fill-color: transparent;
+            font-size: 15px;
+        }
+        #second{
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            background: linear-gradient(to right, red, yellow);
+	        -webkit-background-clip: text;
+	       -webkit-text-fill-color: transparent;
+            font-size: 15px;
+        }
+        .date{
+            font-size: 20px;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="formate">:</div>
+        <div class="time"><span id="timeset"></span> <span id="session">PM</span> <span id="second">PM</span></div>
+        <div class="date">Mar, Sunday 6</div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

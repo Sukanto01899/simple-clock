@@ -2,6 +2,9 @@ let time = document.querySelector('#timeset');
 const date = document.querySelector('.date');
 const session = document.getElementById('session');
 const seconds = document.getElementById('second');
+const months = document.querySelector('.date');
+const mm = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+let dd = ['Sunday', 'Monday', 'Tuesday',' Wednesday',' Thirstday', 'Friday', 'Satarday'];
 
 function showTime(){
     let date = new Date();
@@ -9,6 +12,9 @@ function showTime(){
     let minute = date.getMinutes();
     let second = date.getSeconds();
     let sesson = 'AM'
+    let month = date.getMonth();
+    let day = date.getDay();
+    let dateNo = date.getDate()
 
     if(hour == 0){
         hour = 12;
@@ -24,8 +30,10 @@ function showTime(){
    
    time.textContent = `${hour} : ${minute}`;
    session.textContent = sesson;
-   seconds.textContent = second
+   seconds.textContent = second;
+   months.textContent = `${mm[month]}, ${dd[day]} ${dateNo}`;
 
+   setTimeout(showTime, 1000)
 }
 
 showTime()

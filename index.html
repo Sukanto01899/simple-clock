@@ -9,7 +9,7 @@
         *{
             padding: 0;
             margin: 0;
-            font-family: Verdana, sans-serif;
+            font-family: sans-serif;
         }
         body{
             background-color: #05083C;
@@ -36,16 +36,7 @@
             filter: blur(40px);
            
         }
-   
-        .formate{
-            position: absolute;
-            color: white;
-            right: 10px;
-            top: 5px;
-            font-size: 20px;
-            padding: 5px;
-            cursor: pointer;
-        }
+       
         .time{
             font-size: 80px;
             text-align: center;
@@ -82,11 +73,44 @@
             margin-top: 20px;
             color: blueviolet;
         }
+        .btn{
+            position: relative;
+        }
+        .hour24{
+            position: absolute;
+            top:28px;
+            right: -30px;
+            background-color: gray;
+            padding: 5px;
+            border-radius: 5px;
+            z-index: 10;
+            display: none;
+            font-size: 14px;
+            width: 120px;
+        }
+        .formating{
+            position: absolute;
+            color: white;
+            right: 10px;
+            top: 5px;
+            font-size: 20px;
+            padding: 5px;
+            cursor: pointer;
+        }
+        .formating:hover .hour24{
+            display: block;
+        }
+        input{
+            vertical-align: middle;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="formate">:</div>
+        <div class="formating">
+            <div class="formate"> : </div>
+        <div class="hour24">24-hour formate <input id="24Hour" type="checkbox"></div>
+        </div>
         <div class="time"><span id="timeset"></span> <span id="session">PM</span> <span id="second">PM</span></div>
         <div class="date">Mar, Sunday 6</div>
     </div>

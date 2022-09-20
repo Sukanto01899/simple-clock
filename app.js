@@ -1,13 +1,20 @@
 let time = document.querySelector('#timeset');
-const date = document.querySelector('.date');
+// const dates = document.querySelector('.date');
 const session = document.getElementById('session');
 const seconds = document.getElementById('second');
 const months = document.querySelector('.date');
+const checkBox = document.getElementById('24Hour')
 const mm = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-let dd = ['Sunday', 'Monday', 'Tuesday',' Wednesday',' Thirstday', 'Friday', 'Satarday'];
+const dd = ['Sunday', 'Monday', 'Tuesday',' Wednesday',' Thirstday', 'Friday', 'Satarday'];
+
+
+function setJero(timeID){
+   return (timeID < 10) ? '0' + timeID : timeID;
+}
 
 function showTime(){
     let date = new Date();
+
     let hour = date.getHours();
     let minute = date.getMinutes();
     let second = date.getSeconds();
@@ -23,17 +30,43 @@ function showTime(){
         hour = hour - 12;
         sesson = 'PM'
     }
-  
-   hour = (hour < 10) ? '0' + hour : hour;
-   minute = (minute < 10) ? '0' + minute : minute;
-   second = (second < 10) ? '0' + second : second;
+
+  hour = setJero(hour);
+  minute = setJero(minute);
+  second = setJero(second);
    
    time.textContent = `${hour} : ${minute}`;
    session.textContent = sesson;
    seconds.textContent = second;
    months.textContent = `${mm[month]}, ${dd[day]} ${dateNo}`;
 
-   setTimeout(showTime, 1000)
+   setTimeout(showTime, 1000);
+}
+showTime()
+
+function show24HourFormate(){
+    let date = new Date();
+    let hour = date.getHours();
+    let minute = date.getMinutes();
+    let second = date.getSeconds();
+    let sesson = 'AM'
+   
+    if(hour > 12){
+        sesson = 'PM'
+    }
+    hour = setJero(hour);
+    minute = setJero(minute);
+    second = setJero(second);
+    let timeMode = `${hour} : ${minute}`;
+    return timeMode
 }
 
-showTime()
+
+checkBox.addEventListener('click', ()=>{
+    if(checkBox.checked == true){
+        time.textContent = show24HourFormate();
+    console.log(show24HourFormate())
+    }else{
+        time.textContent = showTime()
+    }
+})

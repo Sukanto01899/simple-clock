@@ -1,5 +1,4 @@
 let time = document.querySelector('#timeset');
-// const dates = document.querySelector('.date');
 const session = document.getElementById('session');
 const seconds = document.getElementById('second');
 const months = document.querySelector('.date');
@@ -42,7 +41,7 @@ function showTime(){
 
    setTimeout(showTime, 1000);
 }
-showTime()
+
 
 function show24HourFormate(){
     let date = new Date();
@@ -62,11 +61,11 @@ function show24HourFormate(){
 }
 
 
-checkBox.addEventListener('click', ()=>{
+function chnageTime() {
     if(checkBox.checked == true){
         time.textContent = show24HourFormate();
-    console.log(show24HourFormate())
     }else{
-        time.textContent = showTime()
+        showTime()
     }
-})
+}
+chnageTime()
